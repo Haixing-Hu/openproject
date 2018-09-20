@@ -90,7 +90,6 @@ export class WorkPackagesListService {
   }
 
   private handleQueryRequest(queryParams:{ query_id?:number, query_props?:string }, projectIdentifier ?:string):Observable<QueryResource> {
-    console.trace(`HANDLING REQUEST ${queryParams.query_id} ${queryParams.query_props}`);
     const decodedProps = this.getCurrentQueryProps(queryParams);
     const queryData = this.UrlParamsHelper.buildV3GetQueryFromJsonParams(decodedProps);
     const stream = this.QueryDm.stream(queryData, queryParams.query_id, projectIdentifier);
